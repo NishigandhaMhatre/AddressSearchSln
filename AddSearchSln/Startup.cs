@@ -34,7 +34,8 @@ namespace AddSearchSln
                 sp.GetRequiredService<IOptions<AddressDatabaseSettings>>().Value);
 
             services.AddSingleton<AddressService>();
-            services.AddControllersWithViews();
+            services.AddControllers()
+                 .AddNewtonsoftJson(options => options.UseMemberCasing()); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
