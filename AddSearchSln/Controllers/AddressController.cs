@@ -10,7 +10,7 @@ using AddressSearchAlpha.Services;
 namespace AddressSearchAlpha.Controllers
 {
 
-    [Route("api/[controller]")]
+    [Route("api/addresses")]
     [ApiController]
     public class AddressController : ControllerBase
     {
