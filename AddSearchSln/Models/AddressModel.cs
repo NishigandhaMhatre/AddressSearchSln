@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-
+using Newtonsoft.Json;
 
 namespace AddressSearchAlpha.Models
 {
@@ -15,6 +15,7 @@ namespace AddressSearchAlpha.Models
         public string Id { get; set; }
 
         [BsonElement("Name")]
+        [JsonProperty("Name")]
         public string Country { get; set; }
     }
 }
