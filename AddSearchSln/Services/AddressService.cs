@@ -1,4 +1,5 @@
 ﻿using AddressSearchAlpha.Models;
+using AddSearchSln.Interfaces;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace AddressSearchAlpha.Services
 {
  
 
-    public class AddressService
+    public class AddressService : IAddressHandler
     {
         private readonly IMongoCollection<AddressModel> addresses;
 
