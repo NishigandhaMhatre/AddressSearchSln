@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 
 namespace AddSearchSln
 {
@@ -28,8 +29,17 @@ namespace AddSearchSln
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Image Editor Prototype",
+                    Description = "REST APIs wrapped aroung Image Processor library."
+                });
+            });
             // requires using Microsoft.Extensions.Options
-            services.Configure<AddressDatabaseSettings>(
+   services.Configure<AddressDatabaseSettings>(
                 Configuration.GetSection(nameof(AddressDatabaseSettings)));
 
             services.AddSingleton<IAddressDatabaseSettings>(sp =>
@@ -59,6 +69,15 @@ namespace AddSearchSln
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("./swagger/v1/swagger.json", "ImageEditor");
+                c.RoutePrefix = string.Empty;
+            });
+
 
             app.UseEndpoints(endpoints =>
             {

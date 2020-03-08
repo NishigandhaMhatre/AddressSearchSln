@@ -11,7 +11,7 @@ namespace AddSearchSln.Controllers
 
     [Route("api/addresses")]
     [ApiController]
-    public class AddressController : ControllerBase
+    public class AddressController : Controller
     {
         private readonly AddressService addressService;
 
