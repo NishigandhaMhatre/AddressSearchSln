@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using AddressSearchAlpha.Models;
-using AddressSearchAlpha.Services;
+using AddSearchSln.Models;
+using AddSearchSln.Services;
 
-namespace AddressSearchAlpha.Controllers
+namespace AddSearchSln.Controllers
 {
 
     [Route("api/addresses")]
@@ -21,7 +21,12 @@ namespace AddressSearchAlpha.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<AddressModel>> Get() =>
-          addressService.Get();
+        public ActionResult<List<AddressFormatModel>> Get()
+        {
+            var temp = addressService.Get();
+            return temp;
+
+        }
+          
     }
 }

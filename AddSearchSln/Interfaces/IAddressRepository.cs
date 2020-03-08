@@ -1,10 +1,10 @@
-﻿using AddressSearchAlpha.Models;
+﻿using AddSearchSln.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AddSearchSln.Models
+namespace AddSearchSln.Interfaces
 {
     interface IAddressRepository
     {

@@ -8,7 +8,8 @@ namespace AddSearchSln.Models
 {
     public class AddressStructureToken : IFormat
     {
-        public string DisplayName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Format { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string DisplayName { get; set; }
+        public string Format { get; set; }
+        public string Type { get; set; }
     }
 }

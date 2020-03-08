@@ -6,7 +6,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace AddressSearchAlpha.Models
+namespace AddSearchSln.Models
 {
     public class AddressModel
     {
@@ -14,8 +14,7 @@ namespace AddressSearchAlpha.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("Name")]
-        [JsonProperty("Name")]
+        
         public string Country { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }

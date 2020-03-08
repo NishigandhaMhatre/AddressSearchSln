@@ -1,12 +1,13 @@
-﻿using AddressSearchAlpha.Models;
+﻿using AddSearchSln.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AddSearchSln.Interfaces;
 
 namespace AddSearchSln.Models
 {
-    public class MockRepo : IAddressRepository
+    public class MockRepo 
     {
         private List<AddressModel> _AddressList;
         public MockRepo()

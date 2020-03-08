@@ -9,5 +9,6 @@ namespace AddSearchSln.Interfaces
     {
         String DisplayName { get; set; }
         String Format { get; set; }
+        String Type { get; set; }
     }
 }
