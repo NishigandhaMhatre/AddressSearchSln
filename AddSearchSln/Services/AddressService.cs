@@ -28,7 +28,7 @@ namespace AddSearchSln.Services
         public List<AddressModel> GetAddress() =>
             addresses.Find(AddressModel => true).ToList();
         public List<AddressFormatModel> GetAddressFormat() =>
-    addressesFormat.Find(AddressFormatModel => true).ToList();
+             addressesFormat.Find(AddressFormatModel => true).ToList();
 
         public AddressModel Get(string id) =>
             addresses.Find<AddressModel>(address => address.Id == id).FirstOrDefault();
