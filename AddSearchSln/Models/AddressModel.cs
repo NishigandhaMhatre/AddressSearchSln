@@ -17,5 +17,9 @@ namespace AddressSearchAlpha.Models
         [BsonElement("Name")]
         [JsonProperty("Name")]
         public string Country { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string StateOrCounty { get; set; }
+        public string PostCode { get; set; }
     }
 }
