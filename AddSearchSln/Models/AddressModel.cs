@@ -14,12 +14,12 @@ namespace AddSearchSln.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        
-        public string Country { get; set; }
-        public string AddressLine1 { get; set; }
-        public string AddressLine2 { get; set; }
-        public string StateOrCounty { get; set; }
-        public string PostCode { get; set; }
+
+        public string Country { get; set; } = null;
+        public string AddressLine1 { get; set; } = null;
+        public string AddressLine2 { get; set; } = null;
+        public string StateOrCounty { get; set; } = null;
+        public string PostCode { get; set; } = null;
 
        
     }
