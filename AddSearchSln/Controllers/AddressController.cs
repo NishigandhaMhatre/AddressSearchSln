@@ -45,9 +45,18 @@ namespace AddSearchSln.Controllers
             var stateOrCounty = addressModel.StateOrCounty;
             var postcode = addressModel.PostCode;
 
-            var temp = addressService.SearchAddress(country, addressLine1, addreessLine2, stateOrCounty, postcode);
-            return temp;
+            var result = addressService.SearchAddress(country, addressLine1, addreessLine2, stateOrCounty, postcode);
+            return result;
 
+        }
+
+        [HttpPost("/searchAddressFormat/{Country}")]
+        public ActionResult<AddressFormatModel> SearchAddressFormat(String Country)
+        {
+           
+            var result = addressService.SearchAddressFormat(Country);
+            return result;
+                
         }
 
 

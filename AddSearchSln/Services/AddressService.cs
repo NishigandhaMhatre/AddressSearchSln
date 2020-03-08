@@ -54,7 +54,14 @@ namespace AddSearchSln.Services
             return null;
         }
 
-        
+        public AddressFormatModel SearchAddressFormat( string country)
+        {
+            var result =
+                 addressesFormat.AsQueryable<AddressFormatModel>()
+                 .Where(c => c.Country.Contains(country));
+            return result.FirstOrDefault();
+        }
+
 
         public void Update(string id, AddressModel addressIn) =>
             addresses.ReplaceOne(address => address.Id == id, addressIn);
