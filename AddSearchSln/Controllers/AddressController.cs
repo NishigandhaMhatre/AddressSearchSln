@@ -36,6 +36,20 @@ namespace AddSearchSln.Controllers
 
         }
 
+        [HttpPost("/searchAddress")]
+        public ActionResult<List<AddressModel>> SearchAddress([FromBody] AddressModel addressModel)
+        {
+            var country = addressModel.Country;
+            var addressLine1 = addressModel.AddressLine1;
+            var addreessLine2 = addressModel.AddressLine2;
+            var stateOrCounty = addressModel.StateOrCounty;
+            var postcode = addressModel.PostCode;
+
+            var temp = addressService.SearchAddress(country, addressLine1, addreessLine2, stateOrCounty, postcode);
+            return temp;
+
+        }
+
 
     }
 }

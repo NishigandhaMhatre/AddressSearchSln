@@ -39,6 +39,11 @@ namespace AddSearchSln.Services
             return address;
         }
 
+        internal List<AddressModel> SearchAddress(string country, string addressLine1, string addreessLine2, string stateOrCounty, string postcode)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(string id, AddressModel addressIn) =>
             addresses.ReplaceOne(address => address.Id == id, addressIn);
 

@@ -20,5 +20,7 @@ namespace AddSearchSln.Models
         public string AddressLine2 { get; set; }
         public string StateOrCounty { get; set; }
         public string PostCode { get; set; }
+
+       
     }
 }
