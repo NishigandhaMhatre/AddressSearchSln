@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Driver.Linq;
 
 namespace AddSearchSln.Services
 {
@@ -39,10 +40,21 @@ namespace AddSearchSln.Services
             return address;
         }
 
-        internal List<AddressModel> SearchAddress(string country, string addressLine1, string addreessLine2, string stateOrCounty, string postcode)
-        {
-            throw new NotImplementedException();
+        public List<AddressModel> SearchAddress(string country, string addressLine1, string addreessLine2, string stateOrCounty, string postcode)
+        { 
+            var result =
+                addresses.AsQueryable<AddressModel>()
+                .Where(c => c.Country.Contains(country) && c.AddressLine1.Contains(addressLine1)
+                            && c.AddressLine2.Contains(addreessLine2) && c.StateOrCounty.Contains(stateOrCounty)
+                            &&c.PostCode.Contains(postcode));
+            if (result != null)
+            {
+                return result.ToList();
+            }
+            return null;
         }
+
+        
 
         public void Update(string id, AddressModel addressIn) =>
             addresses.ReplaceOne(address => address.Id == id, addressIn);
