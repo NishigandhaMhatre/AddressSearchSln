@@ -13,6 +13,7 @@ namespace AddSearchSln.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string id { get; set; }
         public string Country { get; set; }
+        public List<String> StateList { get; set; }
         public AddressStructureToken AddressLine1 { get; set; }
         public AddressStructureToken AddressLine2 { get; set; }
         public AddressStructureToken StateOrCounty { get; set; }
