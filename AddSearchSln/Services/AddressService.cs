@@ -25,9 +25,9 @@ namespace AddSearchSln.Services
             addressesFormat = database.GetCollection<AddressFormatModel>(settings.AddressFormatCollectionName);
         }
 
-        //public List<AddressModel> Get() =>
-        //    addresses.Find(AddressModel => true).ToList();
-        public List<AddressFormatModel> Get() =>
+        public List<AddressModel> GetAddress() =>
+            addresses.Find(AddressModel => true).ToList();
+        public List<AddressFormatModel> GetAddressFormat() =>
     addressesFormat.Find(AddressFormatModel => true).ToList();
 
         public AddressModel Get(string id) =>

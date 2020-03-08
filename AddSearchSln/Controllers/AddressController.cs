@@ -20,13 +20,22 @@ namespace AddSearchSln.Controllers
             addressService = _addressService;
         }
 
-        [HttpGet]
-        public ActionResult<List<AddressFormatModel>> Get()
+        [HttpGet("/format")]
+        public ActionResult<List<AddressFormatModel>> GetAddressFormat()
         {
-            var temp = addressService.Get();
+            var temp = addressService.GetAddressFormat();
             return temp;
 
         }
-          
+
+        [HttpGet("/address")]
+        public ActionResult<List<AddressModel>> GetAddress()
+        {
+            var temp = addressService.GetAddress();
+            return temp;
+
+        }
+
+
     }
 }
