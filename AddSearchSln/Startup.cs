@@ -34,8 +34,8 @@ namespace AddSearchSln
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "Image Editor Prototype",
-                    Description = "REST APIs wrapped aroung Image Processor library."
+                    Title = "Address Search Prototype",
+                    Description = "REST APIs to Save and Search addresses in localized formats."
                 });
             });
             // requires using Microsoft.Extensions.Options
@@ -74,7 +74,7 @@ namespace AddSearchSln
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("./swagger/v1/swagger.json", "ImageEditor");
+                c.SwaggerEndpoint("./swagger/v1/swagger.json", "AddressSearch");
                 c.RoutePrefix = string.Empty;
             });
 
