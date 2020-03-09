@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AddSearchSln.Models;
 using AddSearchSln.Services;
+using System.Web.Http.Cors;
 
 namespace AddSearchSln.Controllers
 {
-
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     [Route("api/addresses")]
     [ApiController]
     public class AddressController : Controller
