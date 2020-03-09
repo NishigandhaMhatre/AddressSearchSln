@@ -10,6 +10,7 @@ using MongoDB.Driver.Linq;
 using Newtonsoft.Json.Linq;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AddSearchSln.Services
 {
@@ -31,20 +32,47 @@ namespace AddSearchSln.Services
 
         public List<AddressModel> GetAddress() =>
             addresses.Find(AddressModel => true).ToList();
+        
         public List<AddressFormatModel> GetAddressFormat() =>
              addressesFormat.Find(AddressFormatModel => true).ToList();
+
+        public AddressFormatModel AddAddressFormat(AddressFormatModel addressFormat)
+        {
+            AddressFormatModel temp = new AddressFormatModel
+            {
+                Country = addressFormat.Country,
+                StateList = addressFormat.StateList,
+                AddressLine1 = addressFormat.AddressLine1,
+                AddressLine2 = addressFormat.AddressLine2,
+                PostCode = addressFormat.PostCode,
+                StateOrCounty = addressFormat.StateOrCounty
+            };
+
+            try
+            {
+                addressesFormat.InsertOne(temp);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("insert format failed", ex);
+            }
+
+            return temp;
+        }
 
         public AddressModel Get(string id) =>
             addresses.Find<AddressModel>(address => address.Id == id).FirstOrDefault();
 
         public AddressModel Add(AddressModel address)
         {
-            AddressModel temp = new AddressModel();
-            temp.AddressLine1 = address.AddressLine1;
-            temp.AddressLine2 = address.AddressLine2;
-            temp.StateOrCounty = address.StateOrCounty;
-            temp.PostCode = address.PostCode;
-            temp.Country = address.Country;
+            AddressModel temp = new AddressModel
+            {
+                AddressLine1 = address.AddressLine1,
+                AddressLine2 = address.AddressLine2,
+                StateOrCounty = address.StateOrCounty,
+                PostCode = address.PostCode,
+                Country = address.Country
+            };
             try
             {
                 addresses.InsertOne(temp);

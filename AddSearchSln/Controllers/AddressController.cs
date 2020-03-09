@@ -65,6 +65,12 @@ namespace AddSearchSln.Controllers
             return addressService.Add(address);
         }
 
+        [HttpPost("/addAddressFormat")]
+        public ActionResult<AddressFormatModel> AddAddressFormat([FromBody] AddressFormatModel addressFormat)
+        {
+            return addressService.AddAddressFormat(addressFormat);
+        }
+
 
     }
 }
