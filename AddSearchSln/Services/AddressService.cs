@@ -52,7 +52,6 @@ namespace AddSearchSln.Services
             catch (Exception ex)
             {
                 Debug.WriteLine("insert failed", ex);
-                return temp;
             }
 
             return temp;
