@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver.Linq;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace AddSearchSln.Services
 {
@@ -34,10 +37,25 @@ namespace AddSearchSln.Services
         public AddressModel Get(string id) =>
             addresses.Find<AddressModel>(address => address.Id == id).FirstOrDefault();
 
-        public AddressModel Create(AddressModel address)
+        public AddressModel Add(AddressModel address)
         {
-            addresses.InsertOne(address);
-            return address;
+            AddressModel temp = new AddressModel();
+            temp.AddressLine1 = address.AddressLine1;
+            temp.AddressLine2 = address.AddressLine2;
+            temp.StateOrCounty = address.StateOrCounty;
+            temp.PostCode = address.PostCode;
+            temp.Country = address.Country;
+            try
+            {
+                addresses.InsertOne(temp);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("insert failed", ex);
+                return temp;
+            }
+
+            return temp;
         }
 
         public List<AddressModel> SearchAddress(string country, string addressLine1, string addreessLine2, string stateOrCounty, string postcode)
@@ -62,9 +80,9 @@ namespace AddSearchSln.Services
             return result.FirstOrDefault();
         }
 
-
-        public void Update(string id, AddressModel addressIn) =>
+                public void Update(string id, AddressModel addressIn) =>
             addresses.ReplaceOne(address => address.Id == id, addressIn);
+
 
         public void Remove(AddressModel addressIn) =>
             addresses.DeleteOne(address => address.Id == address.Id);

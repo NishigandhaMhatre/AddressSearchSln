@@ -59,6 +59,12 @@ namespace AddSearchSln.Controllers
                 
         }
 
+        [HttpPost("/addAddress")]
+        public ActionResult<AddressModel> AddAddress([FromBody] AddressModel address)
+        {
+            return addressService.Add(address);
+        }
+
 
     }
 }
