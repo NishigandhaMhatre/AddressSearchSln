@@ -55,7 +55,7 @@ namespace AddSearchSln.Controllers
         }
 
         [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
-        [HttpPost("/searchAddressFormat/{Country}")]
+        [HttpGet("/searchAddressFormat/{Country}")]
         public ActionResult<AddressFormatModel> SearchAddressFormat(String Country)
         {
            
