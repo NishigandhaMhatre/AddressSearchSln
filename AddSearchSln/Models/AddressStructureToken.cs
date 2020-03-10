@@ -11,5 +11,7 @@ namespace AddSearchSln.Models
         public string DisplayName { get; set; }
         public string Format { get; set; }
         public string Type { get; set; }
+
+        public List<String> Value { get; set; }
     }
 }
