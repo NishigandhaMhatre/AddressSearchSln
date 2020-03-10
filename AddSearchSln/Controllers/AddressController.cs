@@ -21,6 +21,7 @@ namespace AddSearchSln.Controllers
             addressService = _addressService;
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpGet("/format")]
         public ActionResult<List<AddressFormatModel>> GetAddressFormat()
         {
@@ -29,6 +30,7 @@ namespace AddSearchSln.Controllers
 
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpGet("/address")]
         public ActionResult<List<AddressModel>> GetAddress()
         {
@@ -37,6 +39,7 @@ namespace AddSearchSln.Controllers
 
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpPost("/searchAddress")]
         public ActionResult<List<AddressModel>> SearchAddress([FromBody] AddressModel addressModel)
         {
@@ -51,6 +54,7 @@ namespace AddSearchSln.Controllers
 
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpPost("/searchAddressFormat/{Country}")]
         public ActionResult<AddressFormatModel> SearchAddressFormat(String Country)
         {
@@ -60,12 +64,14 @@ namespace AddSearchSln.Controllers
                 
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpPost("/addAddress")]
         public ActionResult<AddressModel> AddAddress([FromBody] AddressModel address)
         {
             return addressService.Add(address);
         }
 
+        [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
         [HttpPost("/addAddressFormat")]
         public ActionResult<AddressFormatModel> AddAddressFormat([FromBody] AddressFormatModel addressFormat)
         {
