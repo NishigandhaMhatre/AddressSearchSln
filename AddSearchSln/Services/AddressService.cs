@@ -41,7 +41,6 @@ namespace AddSearchSln.Services
             AddressFormatModel temp = new AddressFormatModel
             {
                 Country = addressFormat.Country,
-                StateList = addressFormat.StateList,
                 AddressLine1 = addressFormat.AddressLine1,
                 AddressLine2 = addressFormat.AddressLine2,
                 PostCode = addressFormat.PostCode,
